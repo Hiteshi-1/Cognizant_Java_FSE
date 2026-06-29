@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+               http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+               http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/aop
+               http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--
+    ==========================================================
+     Exercise 1 & 5 : Define beans for BookService & BookRepository
+    ==========================================================
+    -->
+    <bean id="bookRepository" class="com.library.repository.BookRepository"/>
+
+    <!--
+    ==========================================================
+     Exercise 2 & 5 : Setter Injection – wire BookRepository into BookService
+     Exercise 7     : Constructor Injection + Setter Injection
+    ==========================================================
+    -->
+    <bean id="bookService" class="com.library.service.BookService">
+        <!-- Constructor Injection (Ex 7) -->
+        <constructor-arg ref="bookRepository"/>
+        <!-- Setter Injection (Ex 2, 5, 7) -->
+        <property name="bookRepository" ref="bookRepository"/>
+    </bean>
+
+    <!--
+    ==========================================================
+     Exercise 6 : Component Scanning (annotation-based config)
+    ==========================================================
+    -->
+    <context:component-scan base-package="com.library"/>
+
+    <!--
+    ==========================================================
+     Exercise 3 & 8 : AspectJ auto-proxy + LoggingAspect bean
+    ==========================================================
+    -->
+    <aop:aspectj-autoproxy/>
+    <bean id="loggingAspect" class="com.library.aspect.LoggingAspect"/>
+
+</beans>
