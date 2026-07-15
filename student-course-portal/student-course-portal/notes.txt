@@ -1,0 +1,14 @@
+Notes on generated Angular project files (Hands-On 1, Task 1):
+
+angular.json        - Workspace-wide build/serve/test configuration (builders, options, budgets) for the project.
+tsconfig.json        - Base TypeScript compiler configuration shared by app and spec configs.
+tsconfig.app.json    - TypeScript config specific to compiling the browser application bundle.
+package.json         - Lists npm dependencies/devDependencies and defines CLI scripts (start, build, test).
+src/main.ts           - Application entry point; bootstraps the root standalone AppComponent with appConfig.
+src/app/app.config.ts - Provides application-wide providers (router, HttpClient, Store) for standalone bootstrap.
+src/app/app.component.ts - Root component; hosts the header and the router-outlet for all routed pages.
+src/index.html        - The single HTML page the SPA is rendered into; contains the <app-root> host element.
+
+angular.json budgets (architect > build > configurations > production):
+  initial:            maximumWarning 500kb, maximumError 1mb  -> controls total initial bundle size warnings/errors.
+  anyComponentStyle:  maximumWarning 4kb,  maximumError 8kb    -> controls per-component CSS file size warnings/errors.

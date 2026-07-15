@@ -1,0 +1,20 @@
+/* Global styles for the Student Course Portal */
+* { box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #f5f6fa;
+  color: #222;
+}
+.ng-invalid.ng-touched { border-color: #e74c3c; }
+.ng-valid.ng-touched { border-color: #2ecc71; }
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  background: #2c3e50;
+  color: #fff;
+}
+button:disabled { background: #aaa; cursor: not-allowed; }
+input, select { padding: 6px; margin: 4px 0; }
